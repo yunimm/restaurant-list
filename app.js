@@ -12,16 +12,14 @@ app.get('/',(req, res) => {
 app.get('/search',(req, res) => {
 
     const keyword = req.query.keyword 
-    let restaurants = []
-    restaurants = restaurantList.results.filter(restaurant => {
-        return restaurant.name.trim().toLowerCase().includes(keyword.trim().toLowerCase())
+    const restaurants = restaurantList.results.filter(restaurant => {
+        return restaurant.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()) || 
+        restaurant.category.trim().toLowerCase().includes(keyword.trim().toLowerCase())
     })
 
-    if (keyword.length === 0) {
-        res.render('blank_results')
-    }else if (keyword !== restaurantList.name) {
-        res.render('no_results',{keyword: keyword})
-    }else {
+    if (keyword.length === 0 || keyword.includes(restaurants)) {
+        res.render('no_results')
+    } else {
         res.render('index',{ restaurants:restaurants, keyword: keyword })
     }
     
