@@ -1,5 +1,4 @@
 # 我的餐廳清單
-Demo https://yunimm.github.io/restaurant_list/
 ## 專案畫面
 ![GITHUB](https://imgur.com/V1WVZev.jpg"首頁")
 ![GITHUB](https://imgur.com/H97l22q.jpg"餐廳資料")
